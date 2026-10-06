@@ -13,8 +13,7 @@ const Frontpage = () => {
                         </h1>
 
                         <p className="mt-4 text-base sm:text-lg text-muted-foreground">
-                            Frontend-utvecklare som bygger moderna och snabba webblösningar
-                            med fokus på ren kod, prestanda och mörka teman.
+                            Fullstackutvecklare under utbildning, med flera års erfarenhet av ideellt utvecklingsarbete inom bland annat FiveM-communityt. Nu vill jag ta nästa steg och få in en fot i branschen som utvecklare. Jag bygger användarvänliga digitala lösningar och söker LIA eller en första junior-roll.
                         </p>
 
                         <div className="mt-8 flex flex-wrap items-center gap-4">
