@@ -15,9 +15,9 @@ export default function Header() {
     return (
         <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'border-b border-border/80 bg-background/80 backdrop-blur-lg shadow-lg shadow-black/20' : 'border-b border-transparent bg-transparent'}`}>
             <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-                <a href="#home" className="font-mono text-lg font-semibold">
+                <a href="#home" className="font-sans text-lg font-semibold">
                     <span className="text-primary">&lt;</span>
-                    <span className="text-foreground">Viktor</span>
+                    <span className="text-foreground font-mono">Viktor</span>
                     <span className="text-primary"> /&gt;</span>
                 </a>
 
