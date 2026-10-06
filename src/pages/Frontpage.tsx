@@ -1,5 +1,6 @@
 import { FolderGit2 } from "lucide-react";
 import { CustomIcon } from "../components/Icons";
+import InteractiveAvatar from "../components/InteractiveAvatar";
 
 const Frontpage = () => {
     return (
@@ -28,8 +29,8 @@ const Frontpage = () => {
                         </div>
                     </div>
 
-                    <div className="w-full lg:w-auto">
-                        {/* Fixa en vector bild här (av mig själv eller något annat kul) */}
+                    <div className="w-full lg:w-auto flex justify-center">
+                        <InteractiveAvatar />
                     </div>
                 </div>
             </section>
