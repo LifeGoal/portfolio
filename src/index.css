@@ -1,1 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 @import "tailwindcss";
+
+@theme {
+    --color-background: hsl(var(--background));
+    --color-foreground: hsl(var(--foreground));
+    --color-primary: hsl(var(--primary));
+    --color-primary-foreground: hsl(var(--primary-foreground));
+    --color-secondary: hsl(var(--secondary));
+    --color-muted: hsl(var(--muted));
+    --color-muted-foreground: hsl(var(--muted-foreground));
+    --color-card: hsl(var(--card));
+    --color-border: hsl(var(--border));
+    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+    :root {
+        --background: 218 45% 5%;
+        --foreground: 215 25% 90%;
+        --card: 220 35% 8%;
+        --primary: 199 89% 60%;
+        --primary-foreground: 218 45% 5%;
+        --secondary: 235 77% 72%;
+        --muted: 215 20% 15%;
+        --muted-foreground: 215 16% 47%;
+        --border: 213 30% 18%;
+        color-scheme: dark;
+    }
+
+    * {
+        border-color: hsl(var(--border));
+    }
+
+    html {
+        scroll-behavior: smooth;
+        font-family: var(--font-sans);
+    }
+
+    body {
+        background-color: hsl(var(--background));
+        color: hsl(var(--foreground));
+        min-height: 100vh;
+    }
+
+    ::selection {
+        background: hsl(var(--primary) / 0.3);
+        color: hsl(var(--foreground));
+    }
+
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: hsl(var(--background));
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: hsl(var(--border));
+        border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: hsl(var(--primary) / 0.5);
+    }
+}
+
+@layer utilities {
+    .text-gradient {
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    }
+
+    .glass {
+        background: hsl(var(--card) / 0.6);
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+        border: 1px solid hsl(var(--border));
+    }
+
+    .glass-strong {
+        background: hsl(var(--card) / 0.85);
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+        border: 1px solid hsl(var(--border));
+    }
+}
