@@ -1,12 +1,15 @@
-import { Code2 } from 'lucide-react'
+import { Background } from './components/Background'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Frontpage from './pages/Frontpage'
 
 export default function App() {
     return (
-        <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
-            <Code2 className="h-24 w-24 text-white" />
-            <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-                Vite + React + TS
-            </h1>
+        <div className="relative min-h-screen flex flex-col font-sans text-foreground selection:bg-primary/30 selection:text-foreground">
+            <Background />
+            <Header />
+            <Frontpage />
+            <Footer />
         </div>
     )
 }
