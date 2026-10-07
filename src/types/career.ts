@@ -14,4 +14,3 @@ export interface CareerItem {
 }
 
 export type CareerFilterType = "all" | "work" | "education" | "volunteer";
-
