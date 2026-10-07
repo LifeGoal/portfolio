@@ -106,9 +106,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .animate-project-in {
-        animation: none;
-        opacity: 1;
-        transform: none;
+    .animate-project-in,
+    .scroll-reveal {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
     }
 }

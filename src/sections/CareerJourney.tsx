@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Briefcase, GraduationCap, Calendar, Clock, MapPin, Building2, CheckCircle2, Code2, Filter } from "lucide-react";
 import type { CareerItem, CareerFilterType } from "../types/career";
 import { careerItems } from "../config/careerData";
+import ScrollReveal from "../components/ScrollReveal";
 
 const CareerJourney = () => {
     const [selectedFilter, setSelectedFilter] = useState<CareerFilterType>("all");
@@ -56,99 +57,105 @@ const CareerJourney = () => {
     return (
         <section id="karriär" className="flex flex-col items-center justify-center px-6 py-16 sm:py-24 border-b">
             <div className="mx-auto max-w-6xl w-full flex flex-col gap-8">
-                <div className="flex flex-col gap-3 items-center text-center">
-                    <h2 className="text-3xl sm:text-4xl font-bold text-white">
-                        Karriär & <span className="text-primary">Erfarenhet</span>
-                    </h2>
-                    <p className="text-base sm:text-lg text-muted-foreground max-w-xl">
-                        En tidslinje över vad och vart jag har varit verksam hittills.
-                    </p>
-                </div>
-
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                    <p className="text-2xl font-semibold text-muted-foreground font-mono">
-                        // Utvecklingserfarenhet
-                    </p>
-
-                    <div className="flex flex-wrap items-center gap-2 bg-card/60 p-1.5 rounded-xl border border-border/60">
-                        <span className="text-sm text-muted-foreground px-2 flex items-center gap-1">
-                            <Filter className="h-3.5 w-3.5 text-primary" />
-                            Filter:
-                        </span>
-                        {filters.map(({ key, label }) => {
-                            const isActive = selectedFilter === key;
-                            return (
-                                <button key={key} type="button" onClick={() => setSelectedFilter(key)} className={`px-4 py-2 text-xs rounded-lg transition-all cursor-pointer ${isActive ? "bg-primary text-primary-foreground font-semibold shadow-sm" : "text-muted-foreground hover:text-foreground hover:bg-card"}`}>
-                                    {label}
-                                </button>
-                            );
-                        })}
+                <ScrollReveal direction="up" delay={50}>
+                    <div className="flex flex-col gap-3 items-center text-center">
+                        <h2 className="text-3xl sm:text-4xl font-bold text-white">
+                            Karriär & <span className="text-primary">Erfarenhet</span>
+                        </h2>
+                        <p className="text-base sm:text-lg text-muted-foreground max-w-xl">
+                            En tidslinje över vad och vart jag har varit verksam hittills.
+                        </p>
                     </div>
-                </div>
+                </ScrollReveal>
+
+                <ScrollReveal direction="up" delay={120}>
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                        <p className="text-2xl font-semibold text-muted-foreground font-mono">
+                            // Utvecklingserfarenhet
+                        </p>
+
+                        <div className="flex flex-wrap items-center gap-2 bg-card/60 p-1.5 rounded-xl border border-border/60">
+                            <span className="text-sm text-muted-foreground px-2 flex items-center gap-1">
+                                <Filter className="h-3.5 w-3.5 text-primary" />
+                                Filter:
+                            </span>
+                            {filters.map(({ key, label }) => {
+                                const isActive = selectedFilter === key;
+                                return (
+                                    <button key={key} type="button" onClick={() => setSelectedFilter(key)} className={`px-4 py-2 text-xs rounded-lg transition-all cursor-pointer ${isActive ? "bg-primary text-primary-foreground font-semibold shadow-sm" : "text-muted-foreground hover:text-foreground hover:bg-card"}`}>
+                                        {label}
+                                    </button>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </ScrollReveal>
 
                 <div className="relative flex flex-col gap-10">
                     <div className="absolute left-5 sm:left-6 top-8 bottom-8 w-0.5 -translate-x-1/2 bg-linear-to-b from-transparent via-border/80 to-transparent" />
 
-                    {filteredItems.map((item) => (
-                        <div key={item.id} className="relative pl-12 sm:pl-16 group">
-                            <div className="absolute left-5 sm:left-6 top-1/2 -translate-y-1/2 w-7 sm:w-10 h-0.5 bg-border/60 group-hover:bg-primary transition-colors duration-300" />
+                    {filteredItems.map((item, index) => (
+                        <ScrollReveal key={item.id} direction="up" distance={28} delay={Math.min(index * 120, 360)}>
+                            <div className="relative pl-12 sm:pl-16 group">
+                                <div className="absolute left-5 sm:left-6 top-1/2 -translate-y-1/2 w-7 sm:w-10 h-0.5 bg-border/60 group-hover:bg-primary transition-colors duration-300" />
 
-                            <div className="absolute left-5 sm:left-6 top-1/2 -translate-y-1/2 -translate-x-1/2 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border-2 border-border/80 bg-background text-muted-foreground shadow-md transition-all duration-300 group-hover:border-primary group-hover:text-primary group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(56,189,248,0.4)] z-10">
-                                {getIcon(item.type)}
-                            </div>
-
-                            <div className="rounded-xl border border-border/60 bg-card/60 p-5 sm:p-7 backdrop-blur-sm transition-all duration-300 group-hover:border-primary group-hover:bg-card/80 group-hover:shadow-[0_0_25px_rgba(56,189,248,0.12)] flex flex-col gap-4">
-                                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
-                                    <div className="flex flex-col gap-2">
-                                        <div className="flex flex-wrap items-center gap-2.5">
-                                            <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-primary transition-colors">{item.role}</h3>
-                                            <span className="inline-flex items-center rounded-lg bg-muted/60 border border-border/60 px-3 py-2 text-xs text-muted-foreground">
-                                                {getTypeLabel(item.type)}
-                                            </span>
-                                        </div>
-
-                                        <div className="flex flex-wrap items-center gap-3 text-sm">
-                                            <span className="font-semibold text-primary flex items-center gap-1.5">
-                                                {getCompanyTypeIcon(item.companyType)}
-                                                {item.company}
-                                            </span>
-                                            {item.location && (
-                                                <span className="text-muted-foreground flex items-center gap-1 font-sans">
-                                                    <MapPin className="h-3.5 w-3.5 shrink-0" />
-                                                    {item.location}
-                                                </span>
-                                            )}
-                                        </div>
-                                    </div>
-
-                                    <div className="flex flex-wrap sm:flex-row sm:items-end gap-1.5">
-                                        <span className="inline-flex items-center gap-1.5 rounded-lg border border-border/80 bg-background/60 px-3 py-2 text-xs text-foreground">
-                                            <Calendar className="h-3 w-3 text-primary shrink-0" />
-                                            {item.start} - {item.current ? "Nuvarande" : item.end}
-                                        </span>
-                                        <span className="inline-flex items-center gap-1.5 rounded-lg border border-primary/20 bg-primary/10 px-3 py-2 text-xs text-primary font-medium">
-                                            <Clock className="h-3 w-3 shrink-0" />
-                                            {item.duration}
-                                        </span>
-                                    </div>
+                                <div className="absolute left-5 sm:left-6 top-1/2 -translate-y-1/2 -translate-x-1/2 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border-2 border-border/80 bg-background text-muted-foreground shadow-md transition-all duration-300 group-hover:border-primary group-hover:text-primary group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(56,189,248,0.4)] z-10">
+                                    {getIcon(item.type)}
                                 </div>
 
-                                <p className="text-sm sm:text-base text-muted-foreground">
-                                    {item.description}
-                                </p>
+                                <div className="rounded-xl border border-border/60 bg-card/60 p-5 sm:p-7 backdrop-blur-sm transition-all duration-300 group-hover:border-primary group-hover:bg-card/80 group-hover:shadow-[0_0_25px_rgba(56,189,248,0.12)] flex flex-col gap-4">
+                                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+                                        <div className="flex flex-col gap-2">
+                                            <div className="flex flex-wrap items-center gap-2.5">
+                                                <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-primary transition-colors">{item.role}</h3>
+                                                <span className="inline-flex items-center rounded-lg bg-muted/60 border border-border/60 px-3 py-2 text-xs text-muted-foreground">
+                                                    {getTypeLabel(item.type)}
+                                                </span>
+                                            </div>
 
-                                {item.highlights && item.highlights.length > 0 && (
-                                    <ul className="space-y-2">
-                                        {item.highlights.map((highlight, idx) => (
-                                            <li key={idx} className="flex items-start gap-2.5 text-sm text-muted-foreground">
-                                                <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                                                <span>{highlight}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                )}
+                                            <div className="flex flex-wrap items-center gap-3 text-sm">
+                                                <span className="font-semibold text-primary flex items-center gap-1.5">
+                                                    {getCompanyTypeIcon(item.companyType)}
+                                                    {item.company}
+                                                </span>
+                                                {item.location && (
+                                                    <span className="text-muted-foreground flex items-center gap-1 font-sans">
+                                                        <MapPin className="h-3.5 w-3.5 shrink-0" />
+                                                        {item.location}
+                                                    </span>
+                                                )}
+                                            </div>
+                                        </div>
+
+                                        <div className="flex flex-wrap sm:flex-row sm:items-end gap-1.5">
+                                            <span className="inline-flex items-center gap-1.5 rounded-lg border border-border/80 bg-background/60 px-3 py-2 text-xs text-foreground">
+                                                <Calendar className="h-3 w-3 text-primary shrink-0" />
+                                                {item.start} - {item.current ? "Nuvarande" : item.end}
+                                            </span>
+                                            <span className="inline-flex items-center gap-1.5 rounded-lg border border-primary/20 bg-primary/10 px-3 py-2 text-xs text-primary font-medium">
+                                                <Clock className="h-3 w-3 shrink-0" />
+                                                {item.duration}
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <p className="text-sm sm:text-base text-muted-foreground">
+                                        {item.description}
+                                    </p>
+
+                                    {item.highlights && item.highlights.length > 0 && (
+                                        <ul className="space-y-2">
+                                            {item.highlights.map((highlight, idx) => (
+                                                <li key={idx} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+                                                    <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                                                    <span>{highlight}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )}
+                                </div>
                             </div>
-                        </div>
+                        </ScrollReveal>
                     ))}
 
                     {filteredItems.length === 0 && (
