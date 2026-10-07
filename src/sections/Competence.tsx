@@ -8,9 +8,7 @@ const Competence = () => {
     return (
         <section id="kompetens" className="flex flex-col items-center justify-center px-6 py-16 sm:py-24 border-b border-border/60">
             <div className="flex flex-col gap-6 mx-auto max-w-6xl w-full">
-                <div className="flex flex-col">
-                    <h2 className="text-3xl sm:text-4xl text-center font-bold text-white mb-6">Mina <span className="text-primary">kompetenser</span></h2>
-                </div>
+                <h2 className="text-3xl sm:text-4xl text-center font-bold text-white">Mina <span className="text-primary">kompetenser</span></h2>
 
                 <p className="text-2xl font-semibold text-muted-foreground font-mono">
                     // Tech Stack

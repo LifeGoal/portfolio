@@ -6,16 +6,16 @@ const Home = () => {
     return (
         <section id="home" className="relative flex min-h-[calc(100vh-4rem)] items-center justify-center px-6 py-16 sm:py-24 border-b border-border/60">
             <div className="mx-auto max-w-6xl w-full flex flex-col lg:flex-row items-center justify-between gap-12">
-                <div className="max-w-xl">
+                <div className="max-w-xl flex flex-col gap-6">
                     <h1 className="text-4xl sm:text-6xl font-bold text-white">
                         Hej, jag är <span className="text-primary">Viktor</span>
                     </h1>
 
-                    <p className="mt-4 text-base sm:text-lg text-muted-foreground">
+                    <p className="text-base sm:text-lg text-muted-foreground">
                         Fullstackutvecklare under utbildning, med flera års erfarenhet av ideellt utvecklingsarbete inom bland annat FiveM-communityt. Nu vill jag ta nästa steg och få in en fot i branschen som utvecklare. Jag bygger användarvänliga digitala lösningar och söker LIA eller en första junior-roll.
                     </p>
 
-                    <div className="mt-8 flex flex-wrap items-center gap-4">
+                    <div className="flex flex-wrap items-center gap-4">
                         <a href="#projekt" className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-all hover:brightness-110 active:scale-[0.98]">
                             <FolderGit2 className="h-4 w-4" />
                             Se mina projekt

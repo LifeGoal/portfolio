@@ -56,8 +56,8 @@ const CareerJourney = () => {
     return (
         <section id="karriär" className="flex flex-col items-center justify-center px-6 py-16 sm:py-24 border-b">
             <div className="mx-auto max-w-6xl w-full flex flex-col gap-8">
-                <div className="flex flex-col items-center text-center">
-                    <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">
+                <div className="flex flex-col gap-3 items-center text-center">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-white">
                         Karriär & <span className="text-primary">Erfarenhet</span>
                     </h2>
                     <p className="text-base sm:text-lg text-muted-foreground max-w-xl">
@@ -86,7 +86,7 @@ const CareerJourney = () => {
                     </div>
                 </div>
 
-                <div className="relative flex flex-col gap-10 mt-4">
+                <div className="relative flex flex-col gap-10">
                     <div className="absolute left-5 sm:left-6 top-8 bottom-8 w-0.5 -translate-x-1/2 bg-linear-to-b from-transparent via-border/80 to-transparent" />
 
                     {filteredItems.map((item) => (
@@ -97,9 +97,9 @@ const CareerJourney = () => {
                                 {getIcon(item.type)}
                             </div>
 
-                            <div className="rounded-xl border border-border/60 bg-card/70 p-5 sm:p-7 backdrop-blur-sm transition-all duration-300 group-hover:border-primary group-hover:bg-card/90 group-hover:shadow-[0_0_25px_rgba(56,189,248,0.12)]">
+                            <div className="rounded-xl border border-border/60 bg-card/60 p-5 sm:p-7 backdrop-blur-sm transition-all duration-300 group-hover:border-primary group-hover:bg-card/80 group-hover:shadow-[0_0_25px_rgba(56,189,248,0.12)] flex flex-col gap-4">
                                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
-                                    <div className="flex flex-col gap-1">
+                                    <div className="flex flex-col gap-2">
                                         <div className="flex flex-wrap items-center gap-2.5">
                                             <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-primary transition-colors">{item.role}</h3>
                                             <span className="inline-flex items-center rounded-lg bg-muted/60 border border-border/60 px-3 py-2 text-xs text-muted-foreground">
@@ -107,7 +107,7 @@ const CareerJourney = () => {
                                             </span>
                                         </div>
 
-                                        <div className="flex flex-wrap items-center gap-3 mt-1 text-sm">
+                                        <div className="flex flex-wrap items-center gap-3 text-sm">
                                             <span className="font-semibold text-primary flex items-center gap-1.5">
                                                 {getCompanyTypeIcon(item.companyType)}
                                                 {item.company}
@@ -133,12 +133,12 @@ const CareerJourney = () => {
                                     </div>
                                 </div>
 
-                                <p className="mt-4 text-sm sm:text-base text-muted-foreground">
+                                <p className="text-sm sm:text-base text-muted-foreground">
                                     {item.description}
                                 </p>
 
                                 {item.highlights && item.highlights.length > 0 && (
-                                    <ul className="mt-3.5 space-y-2">
+                                    <ul className="space-y-2">
                                         {item.highlights.map((highlight, idx) => (
                                             <li key={idx} className="flex items-start gap-2.5 text-sm text-muted-foreground">
                                                 <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
