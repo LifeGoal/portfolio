@@ -40,8 +40,21 @@ const CareerJourney = () => {
         }
     };
 
+    const getCompanyTypeIcon = (companyType: CareerItem["companyType"]) => {
+        switch (companyType) {
+            case "game":
+                return <Code2 className="h-3.5 w-3.5 text-primary shrink-0" />;
+            case "education":
+                return <GraduationCap className="h-3.5 w-3.5 text-primary shrink-0" />;
+            case "work":
+                return <Briefcase className="h-3.5 w-3.5 text-primary shrink-0" />;
+            case "other":
+                return <Building2 className="h-3.5 w-3.5 text-primary shrink-0" />;
+        }
+    }
+
     return (
-        <section id="career-journey" className="flex flex-col items-center justify-center px-6 py-16 sm:py-24 border-b">
+        <section id="karriär" className="flex flex-col items-center justify-center px-6 py-16 sm:py-24 border-b">
             <div className="mx-auto max-w-6xl w-full flex flex-col gap-8">
                 <div className="flex flex-col items-center text-center">
                     <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">
@@ -57,7 +70,7 @@ const CareerJourney = () => {
                         // Utvecklingserfarenhet
                     </p>
 
-                    <div className="flex flex-wrap items-center gap-2 bg-card/60 p-1.5 rounded-lg border border-border/60">
+                    <div className="flex flex-wrap items-center gap-2 bg-card/60 p-1.5 rounded-xl border border-border/60">
                         <span className="text-sm text-muted-foreground px-2 flex items-center gap-1">
                             <Filter className="h-3.5 w-3.5 text-primary" />
                             Filter:
@@ -65,7 +78,7 @@ const CareerJourney = () => {
                         {filters.map(({ key, label }) => {
                             const isActive = selectedFilter === key;
                             return (
-                                <button key={key} type="button" onClick={() => setSelectedFilter(key)} className={`px-4 py-2 text-xs rounded-md transition-all cursor-pointer ${isActive ? "bg-primary text-primary-foreground font-semibold shadow-sm" : "text-muted-foreground hover:text-foreground hover:bg-card"}`}>
+                                <button key={key} type="button" onClick={() => setSelectedFilter(key)} className={`px-4 py-2 text-xs rounded-lg transition-all cursor-pointer ${isActive ? "bg-primary text-primary-foreground font-semibold shadow-sm" : "text-muted-foreground hover:text-foreground hover:bg-card"}`}>
                                     {label}
                                 </button>
                             );
@@ -89,14 +102,14 @@ const CareerJourney = () => {
                                     <div className="flex flex-col gap-1">
                                         <div className="flex flex-wrap items-center gap-2.5">
                                             <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-primary transition-colors">{item.role}</h3>
-                                            <span className="inline-flex items-center rounded-md bg-muted/60 border border-border/60 px-2 py-0.5 text-xs text-muted-foreground">
+                                            <span className="inline-flex items-center rounded-lg bg-muted/60 border border-border/60 px-3 py-2 text-xs text-muted-foreground">
                                                 {getTypeLabel(item.type)}
                                             </span>
                                         </div>
 
                                         <div className="flex flex-wrap items-center gap-3 mt-1 text-sm">
                                             <span className="font-semibold text-primary flex items-center gap-1.5">
-                                                <Building2 className="h-4 w-4 shrink-0" />
+                                                {getCompanyTypeIcon(item.companyType)}
                                                 {item.company}
                                             </span>
                                             {item.location && (
@@ -109,11 +122,11 @@ const CareerJourney = () => {
                                     </div>
 
                                     <div className="flex flex-wrap sm:flex-row sm:items-end gap-1.5">
-                                        <span className="inline-flex items-center gap-1.5 rounded-md border border-border/80 bg-background/60 px-2.5 py-1 text-xs text-foreground">
+                                        <span className="inline-flex items-center gap-1.5 rounded-lg border border-border/80 bg-background/60 px-3 py-2 text-xs text-foreground">
                                             <Calendar className="h-3 w-3 text-primary shrink-0" />
                                             {item.start} - {item.current ? "Nuvarande" : item.end}
                                         </span>
-                                        <span className="inline-flex items-center gap-1.5 rounded-md border border-primary/20 bg-primary/10 px-2.5 py-1 text-xs text-primary font-medium">
+                                        <span className="inline-flex items-center gap-1.5 rounded-lg border border-primary/20 bg-primary/10 px-3 py-2 text-xs text-primary font-medium">
                                             <Clock className="h-3 w-3 shrink-0" />
                                             {item.duration}
                                         </span>
