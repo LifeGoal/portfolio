@@ -5,28 +5,28 @@ export const projectsData: ProjectItem[] = [
         id: "1",
         title: "Portfolio",
         description: "Min egen portfolio som visar mina projekt och erfarenheter. Den är byggd med Typescript, React och Tailwind CSS.",
-        image: "/portfolio.png",
-        link: "https://example.com/project1"
+        image: "/portfolio.webp",
+        link: "https://viktor-lindqvist.vercel.app"
     },
     {
         id: "2",
         title: "Presently",
         description: "Presently är en gåvoplattform där man kan ge gåvor till sina nära och kära varje månad. Den är byggd med Typescript, React, Tailwind CSS och Next.js.",
-        image: "/presently.png",
+        image: "/presently.webp",
         link: "https://presently-fawn.vercel.app"
     },
     {
         id: "3",
-        title: "Project 3",
-        description: "Description for Project 3",
-        image: "/portfolio.png",
-        link: "https://example.com/project3"
+        title: "LifeShop",
+        description: "En e-handelsplattform skapad för att sälja produkter online. Den är byggd med Typescript, React, Tailwind CSS och Express.js.",
+        image: "/lifeshop.webp",
+        link: "https://e-handel-systemutveckling.vercel.app"
     },
     {
         id: "4",
         title: "Project 4",
         description: "Description for Project 4",
-        image: "/portfolio.png",
-        link: "https://example.com/project3"
+        image: "/portfolio.webp",
+        link: "https://example.com/project4"
     }
 ];
