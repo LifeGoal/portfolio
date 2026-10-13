@@ -24,9 +24,9 @@ export const projectsData: ProjectItem[] = [
     },
     {
         id: "4",
-        title: "Project 4",
-        description: "Description for Project 4",
-        image: "/portfolio.webp",
-        link: "https://example.com/project4"
+        title: "Boendeportalen",
+        description: "En plattform för att hitta och ansöka om boende. Byggdes i grupp med andra studenter. Plattformen är byggd med TypeScript, React och Tailwind CSS samt använder Axios för databasförbindelser.",
+        image: "/boendeportalen.webp",
+        link: "https://boendeportalen-one.vercel.app"
     }
 ];
