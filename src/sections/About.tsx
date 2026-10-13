@@ -20,7 +20,7 @@ const About = () => {
                     <ScrollReveal direction="up" delay={250}>
                         <p>
                             Självklart är jag inte färdigutvecklad, men jag är motiverad att ta nästa steg och få in en fot i branschen som utvecklare, på riktigt.
-                            Därför söker jag nu en LIA-plats eller en första junior-roll där jag kan bidra med det har jag lärt mig hittills, samtidigt som jag fortsätter att växa och utvecklas som utvecklare med er.
+                            Därför söker jag nu en LIA-plats eller en första junior-roll där jag kan bidra med det jag har lärt mig hittills, samtidigt som jag fortsätter att växa och utvecklas som utvecklare med er.
                             Låter det intressant? Hör av dig så kan vi ta en pratstund!
                         </p>
                     </ScrollReveal>
